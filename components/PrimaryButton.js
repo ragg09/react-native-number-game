@@ -19,7 +19,7 @@ export default function PrimaryButton({ children, onPress }) {
 }
 
 PrimaryButton.defaultProps = {
-  title: 'Button Text'
+  children: 'Button Text'
 };
 
 const styles = StyleSheet.create({
