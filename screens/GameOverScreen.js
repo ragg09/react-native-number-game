@@ -5,7 +5,8 @@ export default function GameOverScreen({ answer }) {
   return (
     <View style={styles.inputContainer}>
       <Title children={'Game Over'} />
-      <Text style={styles.scoreText}>Your Number is {answer}</Text>
+      <Text style={styles.scoreText}>Final Guess:</Text>
+      <Text style={styles.score}> {answer}</Text>
     </View>
   );
 }
@@ -32,5 +33,10 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 16
+  },
+  score: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 50
   }
 });
