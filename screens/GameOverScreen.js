@@ -1,42 +1,52 @@
-import { TextInput, Button, View, Text, StyleSheet } from 'react-native';
+import { TextInput, Button, View, Text, StyleSheet, Image } from 'react-native';
 import Title from '../components/ui/Title';
+import Colors from '../constants/colors';
+import PrimaryButton from '../components/ui/PrimaryButton';
 
 export default function GameOverScreen({ answer }) {
   return (
-    <View style={styles.inputContainer}>
-      <Title children={'Game Over'} />
-      <Text style={styles.scoreText}>Final Guess:</Text>
-      <Text style={styles.score}> {answer}</Text>
+    <View style={styles.rooContaniner}>
+      <Title children={'GAME OVER!'} />
+      <View style={styles.imageContainer}>
+        <Image
+          source={require('../assets/images/success.png')}
+          style={styles.image}
+        />
+      </View>
+      <Text style={styles.summaryText}>
+        Your phone needed <Text style={styles.highlightText}>X</Text> rounds to
+        gues the number <Text style={styles.highlightText}>Y</Text>
+      </Text>
+      <PrimaryButton>Start New Game</PrimaryButton>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    justifyContent: 'center',
+  rooContaniner: {
+    flex: 1,
     alignItems: 'center',
-    marginHorizontal: 24,
-    borderRadius: 8,
-    padding: 16,
-    marginTop: 100,
-    backgroundColor: Colors.primary800,
-    elevation: 4,
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 440.25,
-    shadowRadius: 6
+    justifyContent: 'center'
   },
-  scoreText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16
+  imageContainer: {
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+    borderColor: Colors.primary800,
+    overflow: 'hidden',
+    margin: 36,
+    borderWidth: 10
   },
-  score: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 50
+  image: {
+    height: '100%',
+    width: '100%'
+  },
+  summaryText: {
+    fontSize: 24,
+    textAlign: 'center',
+    margin: 36
+  },
+  highlightText: {
+    color: Colors.primary500
   }
 });
