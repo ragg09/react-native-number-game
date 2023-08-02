@@ -19,10 +19,10 @@ const generateRandomBetween = (min, max, exclude) => {
 };
 
 let minBoundary = 1;
-let maxBoundary = 1000;
+let maxBoundary = 100;
 
 export default function GameScreen({ userNumber, onGameOver }) {
-  const initialGuess = generateRandomBetween(1, 1000, userNumber);
+  const initialGuess = generateRandomBetween(1, 100, userNumber);
   const [guess, setGuess] = useState(initialGuess);
   const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
@@ -56,7 +56,7 @@ export default function GameScreen({ userNumber, onGameOver }) {
 
   useEffect(() => {
     minBoundary = 1;
-    maxBoundary = 1000;
+    maxBoundary = 100;
   }, []);
 
   return (
